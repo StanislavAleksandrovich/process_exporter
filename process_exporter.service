@@ -1,0 +1,12 @@
+[Unit]
+Description=Process Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/local/bin/process_cpumem_exporter_amd64
+[Install]
+WantedBy=multi-user.target
