@@ -1,1 +1,1 @@
-Monitor linux processes unde /usr/local/bin
+Monitor linux processes under /usr/local/bin
