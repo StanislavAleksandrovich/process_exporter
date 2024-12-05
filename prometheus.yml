@@ -1,0 +1,33 @@
+scrape_configs:
+  - job_name: 'Process Monitor'
+    static_configs:
+
+      - targets:
+          - host:9414
+        labels:
+          hostname: host1
+
+      - targets:
+          - host:9414
+        labels:
+          hostname:host2
+
+      - targets:
+          - host:9414
+        labels:
+          hostname: host3
+
+
+    relabel_configs:
+      - source_labels: [__address__]
+        regex: '(.+):\d+'
+        target_label: instance
+        replacement: '$1'
+
+
+    basic_auth:
+      username: "username"
+      password: "password" 
+
+    scrape_interval: 15s
+    scrape_timeout: 10s 
