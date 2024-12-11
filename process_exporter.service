@@ -7,6 +7,6 @@ After=network-online.target
 User=root
 Group=root
 Type=simple
-ExecStart=/usr/local/bin/process_exporter_amd64 -authfile /usr/local/bin/auth.txt -port 9414
+ExecStart=/usr/local/bin/process_exporter_amd64 -authfile /usr/local/bin/auth.txt -cmdname /usr/local/bin/cmdname.txt -port 9414
 [Install]
 WantedBy=multi-user.target
