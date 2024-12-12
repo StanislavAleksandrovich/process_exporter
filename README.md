@@ -10,11 +10,17 @@ get process name
 cat /proc/PID/stat | awk '{print $2}' | sed 's/^(//;s/)$//'
 
 cmdname.txt
-bash
-kworker/u2:1-events_power_efficient
+processname1
+processname2
+processname3
 .
 .
 .
+processnameN
+
+auth.txt format
+username:password
+
 
 Help menu
   -authfile string
@@ -55,9 +61,5 @@ Help menu
     	Enable number of threads metric (default true)
   -port int
     	Port to run the server on (default 9414)
-
-
-auth.txt format
-username:password
 
 ```
