@@ -6,6 +6,16 @@ Monitor all processes if cmdname.txt doesn't exist or is empty
 Monitor specific processes by listing them in cmdname.txt
 Use the -cmdname flag to specify a different file name
 
+get process name
+cat /proc/PID/stat | awk '{print $2}' | sed 's/^(//;s/)$//'
+
+cmdname.txt
+bash
+kworker/u2:1-events_power_efficient
+.
+.
+.
+
 Help menu
   -authfile string
     	File containing the username:password for basic auth (default "auth.txt")
