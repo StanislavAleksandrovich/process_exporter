@@ -125,6 +125,46 @@ asterisk
 postgres
 ```
 
+The names must match the process **command name** as reported by the kernel in
+`/proc/<PID>/comm`. To find the correct name for a running process, read that
+file using its PID:
+
+```bash
+cat /proc/<PID>/comm
+```
+
+For example:
+
+```bash
+$ cat /proc/1017662/comm
+asterisk
+```
+
+The value printed (`asterisk` here) is exactly what you put in `cmdname.txt`.
+Add one name per line for every process you want to monitor:
+
+```
+name1
+name2
+...
+nameN
+```
+
+Tip — if you know the binary but not the PID, you can look up the comm name
+directly:
+
+```bash
+# get the PID(s) first
+pgrep nginx
+
+# then read comm for one of them
+cat /proc/$(pgrep -n nginx)/comm
+```
+
+Note: `comm` is limited by the kernel to 15 characters, so long process names
+appear truncated there — use the truncated value as it appears in
+`/proc/<PID>/comm`.
+
 ### CPU metrics
 
 | Flag | Default | Description |
